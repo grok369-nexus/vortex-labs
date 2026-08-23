@@ -5,6 +5,7 @@ import VortexLogo from "../assets/vortex-logo.svg";
 
 export default function Navbar() {
   const [lightMode, setLightMode] = useState(() => localStorage.getItem("vortex-theme") === "light");
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     document.body.classList.toggle("light-mode", lightMode);
@@ -55,8 +56,17 @@ export default function Navbar() {
           Last checked just now
         </div>
       </aside>
-      <header className="sticky top-0 z-10 flex h-16 items-center justify-between border-b border-zinc-800 bg-zinc-950/95 px-5 backdrop-blur lg:ml-64 lg:px-8">
+      <header className="sticky top-0 z-30 flex h-16 items-center justify-between border-b border-zinc-800 bg-zinc-950/90 px-5 backdrop-blur lg:ml-64 lg:px-8">
         <div className="flex items-center gap-3 lg:hidden">
+          <button
+            type="button"
+            onClick={() => setMobileMenuOpen((isOpen) => !isOpen)}
+            className="mr-1 flex h-9 w-9 items-center justify-center rounded-md border border-zinc-700 text-lg text-zinc-300 hover:bg-zinc-800"
+            aria-label={mobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+            aria-expanded={mobileMenuOpen}
+          >
+            {mobileMenuOpen ? "x" : "="}
+          </button>
           <img src={VortexLogo} alt="Vortex Dynamics" className="h-8 w-8" />
           <span className="font-semibold text-zinc-100">Vortex Dynamics</span>
         </div>
@@ -67,6 +77,43 @@ export default function Navbar() {
           <NavLink to="/contact" className={({ isActive }) => `rounded-md px-3 py-2 text-xs sm:text-sm ${isActive ? "sidebar-nav-active" : "text-zinc-400 hover:text-zinc-100"}`}>Contact</NavLink>
         </nav>
       </header>
+      {mobileMenuOpen && (
+        <>
+          <button
+            type="button"
+            aria-label="Close navigation menu"
+            className="fixed inset-0 z-20 bg-black/30 lg:hidden"
+            onClick={() => setMobileMenuOpen(false)}
+          />
+          <aside className="fixed left-0 right-0 top-16 z-20 border-b border-zinc-800 bg-zinc-950/90 px-5 py-5 shadow-panel backdrop-blur lg:hidden">
+            <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-zinc-600">Workspace</p>
+            <nav className="space-y-1">
+              {navItems.map((item) => (
+                <NavLink
+                  end={item.to === "/"}
+                  key={item.label}
+                  to={item.to}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className={({ isActive }) => `sidebar-nav ${isActive ? "sidebar-nav-active" : ""}`}
+                >
+                  <span className="w-5 text-center text-xs font-bold uppercase">{item.icon.slice(0, 1)}</span>
+                  {item.label}
+                </NavLink>
+              ))}
+              <button type="button" onClick={toggleTheme} className="sidebar-nav w-full text-left" aria-pressed={lightMode}>
+                <span className="w-5 text-center text-xs font-bold">{lightMode ? "D" : "L"}</span>
+                {lightMode ? "Light mode" : "Dark mode"}
+              </button>
+            </nav>
+            <div className="mt-5 border-t border-zinc-800 pt-4">
+              <a className="sidebar-nav" href="https://grok369-portfolio.vercel.app" target="_blank" rel="noreferrer" onClick={() => setMobileMenuOpen(false)}>
+                <span className="w-5 text-center text-xs font-bold">↗</span>
+                Portfolio
+              </a>
+            </div>
+          </aside>
+        </>
+      )}
     </>
   );
 }
