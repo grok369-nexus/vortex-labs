@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Dashboard from "./pages/Dashboard";
+import ProjectsPage from "./pages/ProjectsPage";
 import AboutPage from "./pages/AboutPage";
 import ContactPage from "./pages/ContactPage";
 
@@ -14,7 +15,7 @@ function App() {
         <main className="min-h-[calc(100vh-7rem)] px-5 py-8 lg:ml-64 lg:px-8 lg:py-10">
           <Routes>
             <Route path="/" element={<Dashboard />} />
-            <Route path="/projects" element={<Dashboard />} />
+            <Route path="/projects" element={<ProjectsPage />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/settings" element={<AboutPage />} />

@@ -28,7 +28,7 @@ export default function ContactPage() {
     <div className="mx-auto grid max-w-5xl gap-8 lg:grid-cols-[0.8fr_1.2fr]">
       <div><p className="text-xs font-semibold uppercase tracking-[0.18em] text-emerald-400">Contact</p><h1 className="mt-2 text-3xl font-semibold text-zinc-50">Get in touch.</h1><p className="mt-4 text-sm leading-6 text-zinc-400">Have an idea, question, or useful criticism? Send it through and the team will get back to you.</p><div className="mt-8 space-y-2 text-sm text-zinc-400"><p>info@vortexdynamics.com</p><p>Kampala, Uganda</p></div></div>
       <form onSubmit={handleSubmit} className="dashboard-card space-y-5">
-        <input type="hidden" name="access_key" value={import.meta.env.VITE_WEB3FORMS_ACCESS_KEY || ""} />
+        <input type="hidden" name="access_key" value="ae4b7ed6-e2b5-457a-9681-7c64fd3fd6b5" />
         <input type="hidden" name="subject" value="New Vortex Dynamics feedback" />
         <div className="grid gap-5 sm:grid-cols-2">
           <label className="text-sm text-zinc-300">Name<input required name="name" className="mt-2 w-full rounded-md border border-zinc-700 bg-zinc-950 px-3 py-2.5 text-zinc-100 outline-none focus:border-emerald-500" /></label>

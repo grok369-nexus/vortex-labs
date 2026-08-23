@@ -33,7 +33,7 @@ export default function Navbar() {
         <p className="mb-3 px-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-zinc-600">Workspace</p>
         <nav className="space-y-1">
           {navItems.map((item) => (
-            <NavLink key={item.label} to={item.to} className={({ isActive }) => `sidebar-nav ${isActive ? "sidebar-nav-active" : ""}`}>
+            <NavLink end={item.to === "/"} key={item.label} to={item.to} className={({ isActive }) => `sidebar-nav ${isActive ? "sidebar-nav-active" : ""}`}>
               <span className="w-5 text-center text-xs font-bold uppercase">{item.icon.slice(0, 1)}</span>
               {item.label}
             </NavLink>
@@ -61,9 +61,10 @@ export default function Navbar() {
           <span className="font-semibold text-zinc-100">Vortex Dynamics</span>
         </div>
         <nav className="ml-auto flex items-center gap-1 sm:gap-2">
-          <NavLink to="/" className="sidebar-nav-active rounded-md px-3 py-2 text-xs sm:text-sm">Overview</NavLink>
-          <NavLink to="/about" className="rounded-md px-3 py-2 text-xs text-zinc-400 hover:text-zinc-100 sm:text-sm">Services</NavLink>
-          <NavLink to="/contact" className="rounded-md px-3 py-2 text-xs text-zinc-400 hover:text-zinc-100 sm:text-sm">Contact</NavLink>
+          <NavLink end to="/" className={({ isActive }) => `rounded-md px-3 py-2 text-xs sm:text-sm ${isActive ? "sidebar-nav-active" : "text-zinc-400 hover:text-zinc-100"}`}>Overview</NavLink>
+          <NavLink to="/projects" className={({ isActive }) => `rounded-md px-3 py-2 text-xs sm:text-sm ${isActive ? "sidebar-nav-active" : "text-zinc-400 hover:text-zinc-100"}`}>Projects</NavLink>
+          <NavLink to="/about" className={({ isActive }) => `rounded-md px-3 py-2 text-xs sm:text-sm ${isActive ? "sidebar-nav-active" : "text-zinc-400 hover:text-zinc-100"}`}>Services</NavLink>
+          <NavLink to="/contact" className={({ isActive }) => `rounded-md px-3 py-2 text-xs sm:text-sm ${isActive ? "sidebar-nav-active" : "text-zinc-400 hover:text-zinc-100"}`}>Contact</NavLink>
         </nav>
       </header>
     </>
