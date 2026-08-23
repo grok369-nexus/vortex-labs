@@ -1,0 +1,59 @@
+/* tailwind.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  /* 🔘 Buttons */
+  .btn-primary {
+    @apply text-white bg-[#00E6A5] px-4 py-2 rounded-md 
+           shadow-[0_0_12px_rgba(0,230,165,0.35)] 
+           hover:shadow-[0_0_18px_rgba(0,230,165,0.45)] 
+           transition;
+  }
+  .btn-primary-sm { @apply btn-primary text-sm px-2 py-1; }
+  .btn-primary-lg { @apply btn-primary text-lg px-6 py-3 rounded-lg; }
+
+  .btn-secondary {
+    @apply text-[#08122B] bg-[#c0c0c0] px-4 py-2 rounded-md 
+           shadow-[0_0_10px_#6b7280] hover:bg-[#6b7280] 
+           hover:text-white transition;
+  }
+  .btn-secondary-sm { @apply btn-secondary text-sm px-2 py-1; }
+  .btn-secondary-lg { @apply btn-secondary text-lg px-6 py-3 rounded-lg; }
+
+  /* 📦 Cards */
+  .card-panel {
+    @apply bg-[#6b7280] text-[#c0c0c0] p-6 rounded-lg 
+           border border-[#c0c0c0]/40 
+           shadow-[0_0_10px_#6b7280];
+  }
+  .card-panel-sm { @apply card-panel p-3 rounded-md; }
+  .card-panel-lg { @apply card-panel p-8 rounded-xl; }
+
+  /* 🎨 Gradients */
+  .gradient-primary {
+    @apply bg-gradient-to-r from-[#00E6A5] via-[#6b7280] to-[#08122B] text-white;
+  }
+  .gradient-neutral {
+    @apply bg-gradient-to-r from-[#6b7280] to-[#c0c0c0];
+  }
+
+  /* 📝 Text Utilities */
+  .text-highlight { @apply text-[#00E6A5]; }
+  .text-muted { @apply text-[#c0c0c0]; }
+
+  /* ⚠️ Alerts */
+  .alert-success { @apply bg-[#10B981] text-white p-3 rounded-md; }
+  .alert-success-sm { @apply alert-success text-sm p-2; }
+  .alert-success-lg { @apply alert-success text-lg p-4 rounded-lg; }
+
+  .alert-warning { @apply bg-[#F59E0B] text-white p-3 rounded-md; }
+  .alert-error { @apply bg-[#DC2626] text-white p-3 rounded-md; }
+  .alert-info { @apply bg-[#06B6D4] text-white p-3 rounded-md; }
+
+  /* 🌟 Glow Shadows */
+  .shadow-glow-teal { @apply shadow-[0_0_15px_#00E6A5]; }
+  .shadow-glow-teal-hover { @apply hover:shadow-[0_0_25px_#00E6A5]; }
+  .shadow-glow-silver { @apply shadow-[0_0_15px_#C0C0C0]; }
+}
