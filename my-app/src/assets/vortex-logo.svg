@@ -1,1 +1,19 @@
+<!-- vortex-logo.svg -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <!-- Background circle (optional, can be removed for transparency) -->
+  <circle cx="100" cy="100" r="95" fill="#081228" stroke="#00E6A5" stroke-width="4" />
+
+  <!-- V letter -->
+  <path d="M40 50 L70 150 L100 50" 
+        stroke="#00E6A5" stroke-width="10" fill="none" stroke-linecap="round" />
+
+  <!-- D letter -->
+  <path d="M120 50 L120 150 
+           M120 50 Q170 100 120 150" 
+        stroke="#C0C0C0" stroke-width="10" fill="none" stroke-linecap="round" />
+
+  <!-- Glow effect -->
+  <circle cx="100" cy="100" r="95" fill="none" 
+          stroke="rgba(0,230,165,0.35)" stroke-width="8" />
+</svg>
 
