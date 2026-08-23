@@ -3,19 +3,19 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "vite",              // Start development server
-    "build": "vite build",      // Build for production
-    "preview": "vite preview"   // Preview production build
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
   },
   "dependencies": {
-    "react": "^18.2.0",         // React core
-    "react-dom": "^18.2.0",     // React DOM renderer
-    "react-router-dom": "^6.22.3" // Routing library
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.22.3"
   },
   "devDependencies": {
-    "vite": "^5.0.0",           // Vite bundler
-    "tailwindcss": "^3.4.0",    // Tailwind CSS framework
-    "postcss": "^8.4.31",       // PostCSS processor
-    "autoprefixer": "^10.4.16"  // Vendor prefixer
+    "vite": "^5.0.0",
+    "tailwindcss": "^3.4.0",
+    "postcss": "^8.4.31",
+    "autoprefixer": "^10.4.16"
   }
 }
