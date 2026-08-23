@@ -7,22 +7,18 @@ export default {
   theme: {
     extend: {
       colors: {
-        "brand-dark": "#08122B",     // Deep Navy background
-        "brand-primary": "#00E6A5",  // Neon Teal
-        "brand-graphite": "#6B7280", // Graphite gray
-        "brand-silver": "#C0C0C0",   // Silver accent
+        "brand-dark": "#1E1E1E",
+        "brand-primary": "#34D399",
+        "brand-graphite": "#27272A",
+        "brand-silver": "#E5E5E5",
       },
       fontFamily: {
-        orbitron: ["Orbitron", "sans-serif"], // Futuristic brand font
+        sans: ["Inter", "Roboto", "sans-serif"],
       },
       boxShadow: {
-        "glow-teal": "0 0 15px #00E6A5",
-        "glow-teal-hover": "0 0 25px #00E6A5",
-        "glow-silver": "0 0 15px #C0C0C0",
-      },
-      backgroundImage: {
-        "gradient-primary": "linear-gradient(to right, #00E6A5, #6B7280, #08122B)",
-        "gradient-neutral": "linear-gradient(to right, #6B7280, #C0C0C0)",
+        panel: "0 8px 24px rgba(0, 0, 0, 0.22)",
+        "sidebar-hover": "inset 3px 0 0 #34D399",
+        banner: "0 4px 16px rgba(0, 0, 0, 0.16)",
       },
     },
   },

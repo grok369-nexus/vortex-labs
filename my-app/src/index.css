@@ -1,6 +1,3 @@
-/* index.css */
-
-/* ✅ Import Tailwind layers + custom utilities */
 @import "./styles/tailwind.css";
 
 /* ✅ Global resets and brand defaults */
@@ -11,26 +8,54 @@ html, body {
 }
 
 body {
-  font-family: 'Orbitron', sans-serif; /* Futuristic brand font */
-  background-color: #08122B;           /* brand-dark */
-  color: #C0C0C0;                      /* brand-silver */
-  line-height: 1.6;
+  font-family: "Inter", "Roboto", sans-serif;
+  background: #1E1E1E;
+  color: #E5E5E5;
+  line-height: 1.5;
 }
 
 /* ✅ Scrollbar styling (optional) */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 10px;
 }
 ::-webkit-scrollbar-thumb {
-  background: #00E6A5; /* brand-primary */
-  border-radius: 4px;
+  background: #52525B;
+  border-radius: 5px;
 }
 ::-webkit-scrollbar-track {
-  background: #08122B; /* brand-dark */
+  background: #18181B;
 }
 
 /* ✅ Utility overrides (if needed) */
 a {
   text-decoration: none;
   color: inherit;
+}
+
+.light-mode {
+  background: #f4f4f5;
+  color: #27272a;
+}
+
+.light-mode .bg-zinc-950,
+.light-mode .bg-zinc-900,
+.light-mode .bg-zinc-800 {
+  background-color: #ffffff;
+}
+
+.light-mode .border-zinc-800,
+.light-mode .border-zinc-700 {
+  border-color: #d4d4d8;
+}
+
+.light-mode .text-zinc-100,
+.light-mode .text-zinc-200,
+.light-mode .text-zinc-300 {
+  color: #27272a;
+}
+
+.light-mode .text-zinc-400,
+.light-mode .text-zinc-500,
+.light-mode .text-zinc-600 {
+  color: #71717a;
 }
