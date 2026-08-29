@@ -14,6 +14,20 @@ export default function Alert({ type = "info", size = "md", children }) {
     lg: `${baseClass}-lg`,
   }[size];
 
-  const icons = { success: "OK", warning: "!", error: "x", info: "i" };
-  return <div className={sizeClass}><span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-current text-[10px] font-bold">{icons[type]}</span><span>{children}</span></div>;
+  // ✅ Improved icons
+  const icons = {
+    success: "✅",
+    warning: "⚠️",
+    error: "❌",
+    info: "ℹ️",
+  };
+
+  return (
+    <div className={sizeClass}>
+      <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-current text-[12px] font-bold">
+        {icons[type]}
+      </span>
+      <span>{children}</span>
+    </div>
+  );
 }
