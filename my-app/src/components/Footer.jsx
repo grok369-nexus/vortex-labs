@@ -6,6 +6,8 @@ export default function Footer() {
 
   useEffect(() => {
     const fetchFooter = async () => {
+      if (!supabase) return;
+
       let { data, error } = await supabase.from("footer").select("*").single();
       if (!error) setFooter(data);
     };

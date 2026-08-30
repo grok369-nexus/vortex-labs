@@ -7,6 +7,8 @@ export default function AboutPage() {
 
   useEffect(() => {
     const fetchAbout = async () => {
+      if (!supabase) return;
+
       let { data, error } = await supabase.from("about").select("*");
       if (!error) setAboutItems(data);
     };

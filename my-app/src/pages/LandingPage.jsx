@@ -11,6 +11,8 @@ export default function LandingPage() {
   // ✅ Fetch features
   useEffect(() => {
     const fetchFeatures = async () => {
+      if (!supabase) return;
+
       let { data, error } = await supabase.from("features").select("*");
       if (!error) setFeatures(data);
     };
@@ -20,6 +22,8 @@ export default function LandingPage() {
   // ✅ Fetch alerts
   useEffect(() => {
     const fetchAlerts = async () => {
+      if (!supabase) return;
+
       let { data, error } = await supabase.from("alerts").select("*");
       if (!error) setAlerts(data);
     };

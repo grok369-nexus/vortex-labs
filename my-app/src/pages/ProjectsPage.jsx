@@ -10,6 +10,8 @@ export default function ProjectsPage() {
   // ✅ NEW: fetch projects from Supabase
   useEffect(() => {
     const fetchProjects = async () => {
+      if (!supabase) return;
+
       let { data, error } = await supabase
         .from("projects")
         .select("*")

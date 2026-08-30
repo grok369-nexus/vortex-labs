@@ -11,6 +11,8 @@ export default function Dashboard() {
   // ✅ NEW: fetch projects from Supabase when component mounts
   useEffect(() => {
     const fetchProjects = async () => {
+      if (!supabase) return;
+
       let { data, error } = await supabase
         .from("projects")
         .select("*")

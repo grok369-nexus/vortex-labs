@@ -7,6 +7,8 @@ export default function Hero() {
 
   useEffect(() => {
     const fetchHero = async () => {
+      if (!supabase) return;
+
       let { data, error } = await supabase.from("hero").select("*").single();
       if (!error) setHero(data);
     };

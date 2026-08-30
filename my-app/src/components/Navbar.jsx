@@ -15,6 +15,8 @@ export default function Navbar() {
   // ✅ Fetch nav items from Supabase
   useEffect(() => {
     const fetchNavItems = async () => {
+      if (!supabase) return;
+
       let { data, error } = await supabase.from("navigation").select("*").order("id");
       if (!error) setNavItems(data);
     };
