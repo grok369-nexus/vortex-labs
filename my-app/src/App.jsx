@@ -6,7 +6,8 @@ import Dashboard from "./pages/Dashboard";
 import ProjectsPage from "./pages/ProjectsPage";
 import AboutPage from "./pages/AboutPage";
 import ContactPage from "./pages/ContactPage";
-import LandingPage from "./pages/LandingPage"; // ✅ NEW
+import LandingPage from "./pages/LandingPage";
+import BlogsPage from "./pages/BlogsPage";
 // import SettingsPage from "./pages/SettingsPage"; // optional
 
 function App() {
@@ -17,12 +18,13 @@ function App() {
         <main className="min-h-[calc(100vh-7rem)] px-5 py-8 lg:ml-64 lg:px-8 lg:py-10">
           <Routes>
             <Route path="/" element={<Dashboard />} />
-            <Route path="/landing" element={<LandingPage />} /> {/* ✅ NEW */}
+            <Route path="/landing" element={<LandingPage />} />
             <Route path="/projects" element={<ProjectsPage />} />
             <Route path="/about" element={<AboutPage />} />
+            <Route path="/blogs" element={<BlogsPage />} />
             <Route path="/contact" element={<ContactPage />} />
             {/* <Route path="/settings" element={<SettingsPage />} /> */}
-            <Route path="*" element={<h1 className="text-red-400">404 - Page Not Found</h1>} /> {/* ✅ NEW */}
+            <Route path="*" element={<h1 className="text-red-400">404 - Page Not Found</h1>} />
           </Routes>
         </main>
         <Footer />

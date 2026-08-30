@@ -27,7 +27,7 @@ export default function LandingPage() {
         return;
       }
 
-      let { data, error } = await supabase.from("features").select("*");
+      const { data, error } = await supabase.from("Features Table").select("*");
       if (!error && Array.isArray(data) && data.length > 0) setFeatures(data);
       else setFeatures(fallbackFeatures);
     };

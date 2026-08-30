@@ -31,9 +31,50 @@ export default function Navbar() {
         return;
       }
 
-      let { data, error } = await supabase.from("navigation").select("*").order("id");
+      const { data, error } = await supabase.from("navigation").select("*").order("id");
       if (!error && Array.isArray(data) && data.length > 0) {
-        setNavItems(data);
+        const normalized = data
+          .filter((item) => item && item.label)
+          .map((item) => {
+            const label = item.label.trim();
+            const suggestedPath =
+              item.to && item.to.trim()
+                ? item.to.trim()
+                : label.toLowerCase() === "blogs"
+                  ? "/blogs"
+                  : label.toLowerCase() === "events"
+                    ? "/events"
+                    : label.toLowerCase() === "landing"
+                      ? "/landing"
+                      : label.toLowerCase() === "projects"
+                        ? "/projects"
+                        : label.toLowerCase() === "about"
+                          ? "/about"
+                          : label.toLowerCase() === "contact"
+                            ? "/contact"
+                            : "/";
+
+            return {
+              ...item,
+              label,
+              to: suggestedPath,
+              icon: item.icon || label.charAt(0).toUpperCase(),
+              external: Boolean(item.external),
+            };
+          });
+
+        const mergedNavItems = [...defaultNavItems];
+        normalized.forEach((item) => {
+          const alreadyExists = mergedNavItems.some(
+            (navItem) => navItem.label === item.label || navItem.to === item.to
+          );
+
+          if (!alreadyExists) {
+            mergedNavItems.push(item);
+          }
+        });
+
+        setNavItems(mergedNavItems.length > 0 ? mergedNavItems : defaultNavItems);
       } else {
         setNavItems(defaultNavItems);
       }

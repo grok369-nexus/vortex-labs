@@ -1,24 +1,28 @@
 import React, { useEffect, useState } from "react";
 import Card from "../components/Card";
 import Alert from "../components/Alert";
-import supabase from "../supabaseClient"; // ✅ NEW: Supabase client import
+import supabase from "../supabaseClient";
+
+const PROJECTS_TABLE = "Projects Table";
 
 export default function ProjectsPage() {
-  // ✅ NEW: state to hold projects from Supabase
   const [projects, setProjects] = useState([]);
 
-  // ✅ NEW: fetch projects from Supabase
   useEffect(() => {
     const fetchProjects = async () => {
       if (!supabase) return;
 
-      let { data, error } = await supabase
-        .from("projects")
+      const { data, error } = await supabase
+        .from(PROJECTS_TABLE)
         .select("*")
-        .order("deadline", { ascending: true });
+        .order("deadline", { ascending: true, nullsFirst: false });
+
       if (error) {
         console.error("Error fetching projects:", error);
-      } else {
+        return;
+      }
+
+      if (Array.isArray(data)) {
         setProjects(data);
       }
     };
