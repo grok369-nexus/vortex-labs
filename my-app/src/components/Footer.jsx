@@ -15,7 +15,7 @@ export default function Footer() {
   }, []);
 
   return (
-    <footer className="border-t border-zinc-800 px-5 py-3 text-xs text-zinc-500 lg:ml-64 lg:px-8">
+    <footer className="border-t border-cyan-400/20 px-5 py-3 text-xs text-zinc-500 shadow-[0_-4px_16px_rgba(0,207,255,0.04)] lg:ml-64 lg:px-8">
       {footer ? (
         <p>
           &copy; {footer.year} {footer.text}

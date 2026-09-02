@@ -89,7 +89,7 @@ export default function Navbar() {
 
   return (
     <>
-      <aside className="fixed inset-y-0 left-0 z-20 hidden w-64 border-r border-zinc-800 bg-zinc-950 px-4 py-6 lg:block">
+      <aside className="fixed inset-y-0 left-0 z-20 hidden w-64 border-r border-cyan-400/15 bg-zinc-950 px-4 py-6 lg:block">
         <Link to="/" className="mb-10 flex items-center gap-3 px-3">
           <img src={VortexLogo} alt="Vortex Dynamics" className="h-9 w-9" />
           <span className="font-semibold tracking-tight text-zinc-100">Vortex Dynamics</span>
@@ -121,7 +121,7 @@ export default function Navbar() {
         </nav>
       </aside>
 
-      <header className="sticky top-0 z-30 flex h-16 items-center justify-between border-b border-zinc-800 bg-zinc-950/90 px-5 backdrop-blur lg:ml-64 lg:px-8">
+      <header className="sticky top-0 z-30 flex h-16 items-center justify-between border-b border-cyan-400/15 bg-zinc-950/90 px-5 shadow-[0_4px_18px_rgba(0,0,0,0.2)] backdrop-blur lg:ml-64 lg:px-8">
         <div className="flex items-center gap-3 lg:hidden">
           <Link to="/" className="flex items-center gap-3">
             <img src={VortexLogo} alt="Vortex Dynamics" className="h-8 w-8" />
@@ -132,19 +132,19 @@ export default function Navbar() {
         <div className="ml-auto flex items-center gap-3">
           <button
             type="button"
-            className="rounded-md border border-zinc-700 px-3 py-2 text-xs font-medium text-zinc-200 lg:hidden"
+            className="btn-secondary rounded-md px-3 py-2 text-xs lg:hidden"
             onClick={() => setMobileMenuOpen((open) => !open)}
           >
             Menu
           </button>
-          <button type="button" onClick={toggleTheme} className="hidden rounded-md border border-zinc-700 px-3 py-2 text-xs font-medium text-zinc-200 lg:inline-flex">
+          <button type="button" onClick={toggleTheme} className="btn-secondary hidden rounded-md px-3 py-2 text-xs lg:inline-flex">
             {lightMode ? "Dark mode" : "Light mode"}
           </button>
         </div>
       </header>
 
       {mobileMenuOpen && (
-        <div className="border-b border-zinc-800 bg-zinc-950 px-5 py-3 lg:hidden">
+        <div className="border-b border-cyan-400/15 bg-zinc-950 px-5 py-3 lg:hidden">
           <nav className="space-y-2">
             {navItems.map((item) => (
               <NavLink
@@ -152,7 +152,7 @@ export default function Navbar() {
                 end={item.to === "/"}
                 to={item.to}
                 onClick={() => setMobileMenuOpen(false)}
-                className={({ isActive }) => `block rounded-md px-3 py-2 text-sm ${isActive ? "bg-zinc-800 text-zinc-50" : "text-zinc-300"}`}
+                className={({ isActive }) => `sidebar-nav ${isActive ? "sidebar-nav-active" : ""}`}
               >
                 {item.label}
               </NavLink>

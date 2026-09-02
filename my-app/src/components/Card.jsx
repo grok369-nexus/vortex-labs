@@ -14,14 +14,14 @@ export default function Card({
       <div className="flex items-start justify-between gap-4">
         <div>
           {category && (
-            <p className="mb-2 text-[11px] font-semibold uppercase tracking-[0.16em] text-zinc-500">
+            <p className="mb-2 text-[11px] font-semibold uppercase tracking-[0.16em] text-cyan-400/70">
               {category}
             </p>
           )}
           <h3 className="text-lg font-semibold text-zinc-100">{title}</h3>
         </div>
         {status && (
-          <span className="rounded-full border border-emerald-800 bg-emerald-950/50 px-2 py-1 text-[10px] font-semibold uppercase tracking-wide text-emerald-300">
+          <span className="rounded-full border border-cyan-400/40 bg-cyan-950/40 px-2 py-1 text-[10px] font-semibold uppercase tracking-wide text-cyan-300">
             {status}
           </span>
         )}
@@ -37,7 +37,7 @@ export default function Card({
 
       {/* Footer: metric */}
       {metric && (
-        <div className="mt-5 border-t border-zinc-800 pt-3 text-xs text-zinc-500">
+        <div className="mt-5 border-t border-cyan-400/15 pt-3 text-xs text-zinc-500">
           {metric}
         </div>
       )}

@@ -12,6 +12,7 @@ body {
   background: #1E1E1E;
   color: #E5E5E5;
   line-height: 1.5;
+  font-family: "Inter", "Roboto", sans-serif;
 }
 
 /* ✅ Scrollbar styling (optional) */
@@ -19,11 +20,17 @@ body {
   width: 10px;
 }
 ::-webkit-scrollbar-thumb {
-  background: #52525B;
+  background: #00CFFF;
   border-radius: 5px;
+  box-shadow: 0 0 8px rgba(0, 207, 255, 0.5);
 }
 ::-webkit-scrollbar-track {
-  background: #18181B;
+  background: #18181b;
+}
+
+* {
+  scrollbar-color: #00CFFF #18181b;
+  scrollbar-width: thin;
 }
 
 /* ✅ Utility overrides (if needed) */
@@ -58,4 +65,16 @@ a {
 .light-mode .text-zinc-500,
 .light-mode .text-zinc-600 {
   color: #71717a;
+}
+
+.light-mode .dashboard-card {
+  background: #ffffff;
+  border-color: rgba(14, 116, 144, 0.25);
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+}
+
+.light-mode .sidebar-nav:hover,
+.light-mode .sidebar-nav-active {
+  background: #ecfeff;
+  color: #155e75;
 }

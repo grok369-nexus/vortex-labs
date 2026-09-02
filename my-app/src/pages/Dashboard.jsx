@@ -151,7 +151,7 @@ export default function Dashboard() {
         <div className="dashboard-card">
           <p className="text-xs text-zinc-500">Active projects</p>
           <p className="mt-2 text-3xl font-semibold text-zinc-100">{projects.length}</p> {/* ✅ NEW: dynamic count */}
-          <p className="mt-1 text-xs text-emerald-400">+2 this month</p>
+          <p className="mt-1 text-xs text-cyan-400">+2 this month</p>
         </div>
         <div className="dashboard-card">
           <p className="text-xs text-zinc-500">Team capacity</p>
@@ -175,7 +175,7 @@ export default function Dashboard() {
           href="https://grok369-portfolio.vercel.app"
           target="_blank"
           rel="noreferrer"
-          className="text-sm font-medium text-emerald-400 hover:text-emerald-300"
+          className="text-sm font-medium text-cyan-400 transition hover:text-cyan-300 hover:drop-shadow-[0_0_8px_rgba(0,207,255,0.5)]"
         >
           View all <span aria-hidden="true">↗</span>
         </a>
