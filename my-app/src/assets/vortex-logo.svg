@@ -1,19 +1,344 @@
-<!-- vortex-logo.svg -->
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
-  <!-- Background circle (optional, can be removed for transparency) -->
-  <circle cx="100" cy="100" r="95" fill="#081228" stroke="#00E6A5" stroke-width="4" />
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
 
-  <!-- V letter -->
-  <path d="M40 50 L70 150 L100 50" 
-        stroke="#00E6A5" stroke-width="10" fill="none" stroke-linecap="round" />
+  <defs>
 
-  <!-- D letter -->
-  <path d="M120 50 L120 150 
-           M120 50 Q170 100 120 150" 
-        stroke="#C0C0C0" stroke-width="10" fill="none" stroke-linecap="round" />
+    <!-- Background -->
+    <radialGradient id="bg" cx="50%" cy="48%" r="75%">
+      <stop offset="0%" stop-color="#10183b"/>
+      <stop offset="55%" stop-color="#060a1b"/>
+      <stop offset="100%" stop-color="#010207"/>
+    </radialGradient>
 
-  <!-- Glow effect -->
-  <circle cx="100" cy="100" r="95" fill="none" 
-          stroke="rgba(0,230,165,0.35)" stroke-width="8" />
+    <!-- V gradients -->
+    <linearGradient id="vMain" x1="120" y1="100" x2="390" y2="400">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="18%" stop-color="#9defff"/>
+      <stop offset="45%" stop-color="#2578ff"/>
+      <stop offset="72%" stop-color="#763cff"/>
+      <stop offset="100%" stop-color="#ff3ed8"/>
+    </linearGradient>
+
+    <linearGradient id="vLeft" x1="130" y1="120" x2="260" y2="380">
+      <stop offset="0%" stop-color="#eaffff"/>
+      <stop offset="25%" stop-color="#49dfff"/>
+      <stop offset="70%" stop-color="#1450ce"/>
+      <stop offset="100%" stop-color="#42208f"/>
+    </linearGradient>
+
+    <linearGradient id="vRight" x1="390" y1="110" x2="250" y2="390">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="25%" stop-color="#a8c9ff"/>
+      <stop offset="65%" stop-color="#703cff"/>
+      <stop offset="100%" stop-color="#e52eff"/>
+    </linearGradient>
+
+    <!-- Vortex gradients -->
+    <linearGradient id="cyan" x1="80" y1="100" x2="430" y2="420">
+      <stop stop-color="#00f0ff"/>
+      <stop offset="45%" stop-color="#147cff"/>
+      <stop offset="100%" stop-color="#6b2cff"/>
+    </linearGradient>
+
+    <linearGradient id="magenta" x1="400" y1="100" x2="120" y2="420">
+      <stop stop-color="#ff35e8"/>
+      <stop offset="50%" stop-color="#842cff"/>
+      <stop offset="100%" stop-color="#00e5ff"/>
+    </linearGradient>
+
+    <!-- Glow -->
+    <filter id="blueGlow" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <filter id="strongGlow" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur stdDeviation="12" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow
+        dx="0"
+        dy="12"
+        stdDeviation="12"
+        flood-color="#000000"
+        flood-opacity="0.85"/>
+    </filter>
+
+  </defs>
+
+
+  <!-- Background -->
+  <rect width="512" height="512" rx="96" fill="url(#bg)"/>
+
+
+  <!-- HUD circles -->
+  <circle cx="256" cy="256" r="220"
+    fill="none"
+    stroke="#0c3b9b"
+    stroke-width="1"
+    opacity=".55"/>
+
+  <circle cx="256" cy="256" r="202"
+    fill="none"
+    stroke="#176cff"
+    stroke-width="1.5"
+    opacity=".5"/>
+
+  <circle cx="256" cy="256" r="184"
+    fill="none"
+    stroke="#246eff"
+    stroke-width="2"
+    stroke-dasharray="4 11"
+    opacity=".35"/>
+
+
+  <!-- Outer orbital ring -->
+  <path
+    d="M54 270
+       C75 125 235 47 374 105
+       C465 143 480 252 405 332"
+    fill="none"
+    stroke="url(#cyan)"
+    stroke-width="3"
+    stroke-linecap="round"
+    filter="url(#blueGlow)"/>
+
+  <!-- Purple orbit -->
+  <path
+    d="M70 340
+       C125 438 337 465 435 339
+       C480 280 458 191 394 144"
+    fill="none"
+    stroke="url(#magenta)"
+    stroke-width="3"
+    stroke-linecap="round"
+    filter="url(#blueGlow)"/>
+
+
+  <!-- MAIN VORTEX GLOW -->
+  <g fill="none" stroke-linecap="round">
+
+    <!-- Outer cyan swirl -->
+    <path
+      d="M100 285
+         C86 180 165 96 270 98
+         C385 101 441 200 405 301
+         C373 389 252 434 151 379"
+      stroke="url(#cyan)"
+      stroke-width="20"
+      opacity=".20"
+      filter="url(#strongGlow)"/>
+
+    <path
+      d="M100 285
+         C86 180 165 96 270 98
+         C385 101 441 200 405 301
+         C373 389 252 434 151 379"
+      stroke="url(#cyan)"
+      stroke-width="9"
+      filter="url(#blueGlow)"/>
+
+
+    <!-- Lower magenta swirl -->
+    <path
+      d="M130 340
+         C195 425 353 402 402 301
+         C429 245 397 177 342 148"
+      stroke="url(#magenta)"
+      stroke-width="17"
+      opacity=".20"
+      filter="url(#strongGlow)"/>
+
+    <path
+      d="M130 340
+         C195 425 353 402 402 301
+         C429 245 397 177 342 148"
+      stroke="url(#magenta)"
+      stroke-width="8"
+      filter="url(#blueGlow)"/>
+
+
+    <!-- Inner cyan vortex -->
+    <path
+      d="M165 312
+         C130 244 179 172 250 165
+         C322 158 374 217 353 282
+         C332 345 248 368 197 320
+         C164 289 177 236 220 218
+         C264 199 306 226 302 262"
+      stroke="url(#cyan)"
+      stroke-width="15"
+      opacity=".22"
+      filter="url(#strongGlow)"/>
+
+    <path
+      d="M165 312
+         C130 244 179 172 250 165
+         C322 158 374 217 353 282
+         C332 345 248 368 197 320
+         C164 289 177 236 220 218
+         C264 199 306 226 302 262"
+      stroke="url(#cyan)"
+      stroke-width="7"
+      filter="url(#blueGlow)"/>
+
+
+    <!-- Inner purple vortex -->
+    <path
+      d="M205 300
+         C177 262 197 217 239 204
+         C280 191 315 220 310 255
+         C306 286 267 304 239 284
+         C221 271 224 245 244 237"
+      stroke="url(#magenta)"
+      stroke-width="7"
+      filter="url(#blueGlow)"/>
+
+  </g>
+
+
+  <!-- Bright orbital crossing -->
+  <path
+    d="M55 278
+       C135 82 374 58 461 184
+       C494 233 455 302 361 348"
+    fill="none"
+    stroke="url(#magenta)"
+    stroke-width="3"
+    filter="url(#blueGlow)"/>
+
+
+  <!-- ENERGY PARTICLES -->
+  <g filter="url(#blueGlow)">
+
+    <circle cx="92" cy="187" r="7" fill="#00e5ff"/>
+    <circle cx="424" cy="152" r="9" fill="#a83cff"/>
+    <circle cx="445" cy="284" r="6" fill="#00e5ff"/>
+    <circle cx="382" cy="395" r="7" fill="#7d42ff"/>
+    <circle cx="111" cy="370" r="5" fill="#ff3eea"/>
+    <circle cx="155" cy="119" r="4" fill="#00e5ff"/>
+
+  </g>
+
+
+  <!-- THE V SHADOW -->
+  <path
+    d="M115 125
+       L196 125
+       L256 278
+       L316 125
+       L397 125
+       L291 388
+       L221 388
+       Z"
+    fill="#000000"
+    opacity=".55"
+    transform="translate(0 10)"
+    filter="url(#shadow)"/>
+
+
+  <!-- LEFT HALF OF V -->
+  <path
+    d="M115 125
+       L196 125
+       L256 278
+       L256 370
+       L221 388
+       Z"
+    fill="url(#vLeft)"/>
+
+
+  <!-- RIGHT HALF OF V -->
+  <path
+    d="M316 125
+       L397 125
+       L291 388
+       L256 370
+       L256 278
+       Z"
+    fill="url(#vRight)"/>
+
+
+  <!-- V CONNECTING CENTER -->
+  <path
+    d="M196 125
+       L256 278
+       L316 125
+       L276 370
+       L256 388
+       L236 370
+       Z"
+    fill="url(#vMain)"
+    opacity=".35"/>
+
+
+  <!-- Metallic V outline -->
+  <path
+    d="M115 125
+       L196 125
+       L256 278
+       L316 125
+       L397 125
+       L291 388
+       L221 388
+       Z"
+    fill="none"
+    stroke="#d8f8ff"
+    stroke-width="5"
+    stroke-linejoin="round"
+    opacity=".9"/>
+
+
+  <!-- Cyan lower V glow -->
+  <path
+    d="M115 125
+       L221 388
+       L291 388
+       L397 125"
+    fill="none"
+    stroke="url(#cyan)"
+    stroke-width="5"
+    stroke-linejoin="round"
+    filter="url(#blueGlow)"/>
+
+
+  <!-- Pink right edge -->
+  <path
+    d="M316 125
+       L291 388"
+    fill="none"
+    stroke="#ff3fe5"
+    stroke-width="4"
+    filter="url(#blueGlow)"/>
+
+
+  <!-- Metallic highlight -->
+  <path
+    d="M125 133
+       L188 133
+       L244 278"
+    fill="none"
+    stroke="#ffffff"
+    stroke-width="4"
+    stroke-linecap="round"
+    opacity=".65"/>
+
+
+  <!-- Center energy -->
+  <circle
+    cx="256"
+    cy="280"
+    r="18"
+    fill="#6838ff"
+    opacity=".25"
+    filter="url(#strongGlow)"/>
+
 </svg>
-
